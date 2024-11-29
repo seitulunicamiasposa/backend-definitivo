@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "FastAPI",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "main:app",  // Assicurati che "main" sia il nome del tuo file e "app" l'istanza di FastAPI
+                "--reload",
+                "--host=0.0.0.0",
+                "--port=8085"
+            ],
+            "jinja": true,
+            "console": "integratedTerminal"
+        }
+    ]
+}
