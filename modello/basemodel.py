@@ -15,7 +15,7 @@ class Utente(BaseModel):
         
 class Macchinari(BaseModel):
     #modello per la gestione dei macchinari
-    plant_id: str
+    #plant_id: str
     name: str
     type: str
     status: str

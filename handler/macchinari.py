@@ -30,8 +30,11 @@ async def get_machinery(id: str):
 
 @router.post("/impianti/{id}/macchinari")
 async def create_machinery(id: str, macchinario: Macchinari):
-    macchinario.plant_id = id
-    response = machinery_collection.insert_one(macchinario.model_dump())
+    #macchinario.plant_id = id
+    new_machinery = macchinario.model_dump()
+    new_machinery["plant_id"] = id
+    response = machinery_collection.insert_one(new_machinery)
+
     plant_collection.update_one({"_id": ObjectId(id)}, 
                                 {"$push": {"machinery": str(response.inserted_id)}})
     return {"_id": toString(response.inserted_id)}
